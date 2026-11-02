@@ -1,0 +1,30 @@
+{
+  "name": "prmpt",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "PRMPT — GameDev Prompt & Markdown Architect: конструктор системных промптов и Markdown-документации (GDD, Tech Spec) для ИИ-агентов",
+  "main": "server/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "build": "npm --prefix web install --no-audit --no-fund && npm --prefix web run build",
+    "test": "node scripts/test-api.mjs",
+    "postinstall": "echo 'PRMPT: не забудьте npm run build для сборки фронтенда'"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "keywords": [
+    "gamedev",
+    "prompt-engineering",
+    "gdd",
+    "ai-agents",
+    "opencode",
+    "cursor"
+  ],
+  "license": "MIT"
+}

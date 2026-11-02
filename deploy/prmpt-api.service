@@ -1,0 +1,37 @@
+[Unit]
+Description=PRMPT — GameDev Prompt & Markdown Architect (API + SPA)
+Documentation=https://freejam.online/prmpt/
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/prmpt
+Environment=NODE_ENV=production
+Environment=PORT=8030
+Environment=HOST=127.0.0.1
+Environment=PRMPT_DATA_DIR=/var/www/prmpt/data
+ExecStart=/usr/bin/node server/index.js
+Restart=always
+RestartSec=3
+KillSignal=SIGTERM
+TimeoutStopSec=10
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=prmpt-api
+
+# Ограничения прав: приложению нужна запись только в каталог данных
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+ReadWritePaths=/var/www/prmpt/data
+
+[Install]
+WantedBy=multi-user.target

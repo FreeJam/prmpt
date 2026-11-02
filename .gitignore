@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+web/node_modules/
+
+# Build output
+web/dist/
+dist/
+
+# Runtime data
+data/
+*.log
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
